@@ -35,7 +35,7 @@ export const Input = styled.input`
 
 export const Center = styled.div``;
 
-export const Logo = styled.span`
+export const Logo = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
