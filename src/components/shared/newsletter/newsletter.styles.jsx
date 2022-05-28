@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../utils/responsive";
 
 export const NewsletterContainer = styled.section`
   height: 60vh;
@@ -7,11 +8,19 @@ export const NewsletterContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media ${device.mobile} {
+    height: 50vh;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 60px;
   margin-bottom: 20px;
+
+  @media ${device.mobile} {
+    font-size: 40px;
+  }
 `;
 
 export const Description = styled.div`

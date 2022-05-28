@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { device } from "../../utils/responsive";
+
 // TODO: di => main
 export const Container = styled.div``;
 
@@ -10,6 +12,7 @@ export const Title = styled.h1`
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 0 20px;
 `;
 
 export const Filter = styled.div`
@@ -17,6 +20,10 @@ export const Filter = styled.div`
   align-items: center;
   column-gap: 20px;
   margin-left: 20px;
+
+  @media ${device.mobile} {
+    margin-left: 0px;
+  }
 `;
 
 export const FilterText = styled.span`

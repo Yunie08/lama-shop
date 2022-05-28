@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { device } from "../../utils/responsive";
+
 export const LoginContainer = styled.main`
   width: 100vw;
   height: 100vh;
@@ -8,7 +10,7 @@ export const LoginContainer = styled.main`
       rgba(255, 255, 255, 0.5)
     ),
     url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-      center;
+      right;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -20,13 +22,21 @@ export const Wrapper = styled.div`
   max-width: 400px;
   padding: 25px 20px;
   background-color: #fff;
+
+  @media ${device.mobile} {
+    width: 80%;
+  }
 `;
 
 export const Title = styled.h1`
   text-transform: uppercase;
-  font-style: 24px;
+  font-size: 24px;
   font-weight: 300;
   margin-bottom: 20px;
+
+  @media ${device.mobile} {
+    text-align: center;
+  }
 `;
 
 export const Form = styled.form`
@@ -34,9 +44,14 @@ export const Form = styled.form`
   flex-direction: column;
   column-gap: 10px;
   row-gap: 20px;
+
+  @media ${device.mobile} {
+    align-items: center;
+  }
 `;
 
 export const Input = styled.input`
+  width: 100%;
   padding: 10px;
 `;
 

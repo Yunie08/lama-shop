@@ -1,14 +1,26 @@
 import styled from "styled-components";
+
+import { device } from "../../../utils/responsive";
+
 export const FooterContainer = styled.footer`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 20px;
+
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+  }
 `;
 export const Left = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
+
+  @media ${device.mobile} {
+    order: 3;
+  }
 `;
 
 export const Logo = styled.div`
@@ -63,6 +75,10 @@ export const ListItem = styled.li`
 
 export const Right = styled.div`
   padding: 20px;
+
+  @media ${device.mobile} {
+    background: #fff8f8;
+  }
 `;
 export const ContactItem = styled.div`
   margin-bottom: 20px;

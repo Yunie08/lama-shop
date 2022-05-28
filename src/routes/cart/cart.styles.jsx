@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
+import { device } from "../../utils/responsive";
+
 export const CartContainer = styled.main``;
 
 export const Wrapper = styled.section`
   padding: 20px;
+
+  @media ${device.mobile} {
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -17,6 +23,9 @@ export const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  @media ${device.mobile} {
+    padding: 20px 0;
+  }
 `;
 
 export const TopButton = styled.button`
@@ -38,12 +47,20 @@ export const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   margin: 0 10px;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 export const Bottom = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   column-gap: 7%;
+
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Info = styled.div``;
@@ -51,6 +68,11 @@ export const Info = styled.div``;
 export const Product = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+  }
 `;
 
 export const ProductDetail = styled.div`
@@ -59,6 +81,10 @@ export const ProductDetail = styled.div`
 
 export const Image = styled.img`
   width: 200px;
+
+  @media ${device.mobile} {
+    width: 150px;
+  }
 `;
 
 export const Details = styled.div`
@@ -66,6 +92,9 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @media ${device.mobile} {
+    padding: 10px;
+  }
 `;
 
 export const ProductName = styled.span``;
@@ -87,6 +116,14 @@ export const PriceDetail = styled.div`
   align-items: center;
   justify-content: center;
   row-gap: 30px;
+
+  @media ${device.mobile} {
+    flex-direction: row;
+
+    justify-content: space-around;
+
+    column-gap: 15px;
+  }
 `;
 
 export const ProductAmountContainer = styled.div`
@@ -97,6 +134,10 @@ export const ProductAmountContainer = styled.div`
 export const ProductAmount = styled.span`
   font-size: 24px;
   margin: 5px;
+
+  @media ${device.mobile} {
+    margin: 5px 15px;
+  }
 `;
 
 export const ProductPrice = styled.span`

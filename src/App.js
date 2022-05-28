@@ -6,12 +6,12 @@ import Login from "./routes/login/login.component";
 import Cart from "./routes/cart/cart.components";
 
 const App = () => {
-  //return <Product />;
+  return <Home />;
   //return <Product />;
   //return <Category />;
   //return <Register />;
   //return <Login />;
-  return <Cart />;
+  //return <Cart />;
 };
 
 export default App;

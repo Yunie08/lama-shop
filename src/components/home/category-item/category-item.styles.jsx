@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
+import { device } from "../../../utils/responsive";
+
 export const Container = styled.div`
   height: 70vh;
   position: relative;
+
+  @media ${device.mobile} {
+    height: 30vh;
+  }
 `;
 
 export const Image = styled.img`

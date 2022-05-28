@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
+import { device } from "../../utils/responsive";
+
 export const ProductContainer = styled.main``;
 
 export const Wrapper = styled.section`
+  width: 100%;
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media ${device.mobile} {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
 `;
 
 export const ImgContainer = styled.div``;
@@ -15,10 +23,17 @@ export const Image = styled.img`
   height: 90vh;
   max-height: 750px;
   object-fit: cover;
+
+  @media ${device.mobile} {
+    height: 40vh;
+  }
 `;
 
 export const InfoContainer = styled.div`
   padding: 0px 50px;
+  @media ${device.mobile} {
+    padding: 20px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -39,6 +54,12 @@ export const FilterContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 30px 0;
+
+  @media ${device.mobile} {
+    > div:last-child {
+      justify-self: flex-end;
+    }
+  }
 `;
 
 export const Filter = styled.div`
@@ -98,5 +119,9 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #e1f7f7;
+  }
+
+  @media ${device.mobile} {
+    justify-self: flex-end;
   }
 `;

@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import { device } from "../../../utils/responsive";
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
-  overflow: hidden; ;
+  overflow: hidden;
+
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 export const Arrow = styled.div`
