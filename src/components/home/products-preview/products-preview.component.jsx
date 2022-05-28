@@ -2,11 +2,11 @@ import React from "react";
 
 import { popularProducts } from "../../../data";
 
-import ProductItem from "../../product-item/product-item.component";
+import ProductItem from "../product-item/product-item.component";
 
-import { ProductsContainer } from "./products.styles";
+import { ProductsContainer } from "./products-preview.styles";
 
-const Products = () => {
+const ProductsPreview = () => {
   return (
     <ProductsContainer>
       {popularProducts.map((product) => (
@@ -16,4 +16,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsPreview;
