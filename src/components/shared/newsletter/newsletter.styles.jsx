@@ -42,4 +42,7 @@ export const Button = styled.button`
   border: none;
   background-color: teal;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
