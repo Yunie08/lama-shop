@@ -7,19 +7,21 @@ const Filter = ({ filter }) => {
     <>
       <FilterContainer>
         <FilterText>{filter.title}</FilterText>
-        {filter.select.map((filter) => (
-          <Select>
+        {filter.select.map((filter, index) => (
+          <Select key={index}>
             {filter.options.map((option, index) => {
               return index === 0 ? (
                 option.disabled ? (
-                  <Option disabled selected>
+                  <Option key={index} disabled selected>
                     {option.disabled}
                   </Option>
                 ) : (
-                  <Option selected>{option}</Option>
+                  <Option key={index} selected>
+                    {option}
+                  </Option>
                 )
               ) : (
-                <Option>{option}</Option>
+                <Option key={index}>{option}</Option>
               );
             })}
           </Select>

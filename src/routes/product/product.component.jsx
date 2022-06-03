@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+import productService from "../../services/products.services";
 
 import Navbar from "../../components/shared/navbar/navbar.component";
 import Announcement from "../../components/shared/announcement/announcement.component";
 import Newsletter from "../../components/shared/newsletter/newsletter.component";
 import Footer from "../../components/shared/footer/footer.component";
-//import Filter from "../../components/shared/filter/filter.component";
+
 import {
   ProductContainer,
   Wrapper,
@@ -27,72 +30,77 @@ import {
 } from "./product.styles";
 import { Add, Remove } from "@mui/icons-material";
 
-// const productFilters = {
-//   colors: {
-//     title: "color",
-//     select: [{ options: ["black", "dark blue", "gray"] }],
-//   },
-//   sizes: {
-//     title: "size",
-//     select: [{ options: ["XS", "S", "M", "L", "XL"] }],
-//   },
-// };
-
 const Product = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+
+  const incrementQuantity = () => setQuantity(quantity + 1);
+  const decrementQuantity = () => quantity > 1 && setQuantity(quantity - 1);
+
+  //TODO: implement redux to handle cart
+
+  useEffect(() => {
+    const getOneProduct = async () => {
+      try {
+        const res = await productService.getProduct(productId);
+        setProduct(res.data.data);
+      } catch (error) {}
+    };
+    getOneProduct();
+  }, [productId]);
+
   return (
     <ProductContainer>
       <Navbar />
       <Announcement />
-      <Wrapper>
-        <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
-        </ImgContainer>
-        <InfoContainer>
-          <Title>Denim jumpsuit</Title>
-          <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eius
-            facilis sit asperiores, possimus obcaecati tempora cum accusantium
-            commodi doloremque eveniet, voluptate sint laudantium quaerat iste
-            animi quas quod dicta?
-          </Description>
-          <Price>$ 20</Price>
-          <FilterContainer>
-            {/* <Filter
-              key={productFilters.colors.title}
-              filter={productFilters.colors}
-            />
-            <Filter
-              key={productFilters.sizes.title}
-              filter={productFilters.sizes}
-            /> */}
-
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
-          <AddContainer>
-            <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
-            </AmountContainer>
-            <Button>Add to cart</Button>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
+      {product && (
+        <Wrapper>
+          <ImgContainer>
+            <Image src={product.image} />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>{product.title}</Title>
+            <Description>{product.desc}</Description>
+            <Price>{`$ ${product.price}`}</Price>
+            <FilterContainer>
+              <Filter>
+                <FilterTitle>Color</FilterTitle>
+                {product.color.map((color) => (
+                  <FilterColor
+                    color={color}
+                    key={color}
+                    onClick={() => setColor(color)}
+                  />
+                ))}
+              </Filter>
+              <Filter>
+                <FilterTitle>Size</FilterTitle>
+                <FilterSize>
+                  {product.size.map((size) => (
+                    <FilterSizeOption
+                      key={size}
+                      onChange={(e) => setSize(e.target.value)}
+                    >
+                      {size}
+                    </FilterSizeOption>
+                  ))}
+                </FilterSize>
+              </Filter>
+            </FilterContainer>
+            <AddContainer>
+              <AmountContainer>
+                <Remove onClick={decrementQuantity} />
+                <Amount>{quantity}</Amount>
+                <Add onClick={incrementQuantity} />
+              </AmountContainer>
+              <Button onClick={handleClick}>Add to cart</Button>
+            </AddContainer>
+          </InfoContainer>
+        </Wrapper>
+      )}
       <Newsletter />
       <Footer />
     </ProductContainer>

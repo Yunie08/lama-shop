@@ -7,12 +7,13 @@ export const Container = styled.div``;
 
 export const Title = styled.h1`
   margin: 20px;
+  text-transform: capitalize;
 `;
 
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 20px;
+  margin-top: 30px;
 `;
 
 export const Filter = styled.div`

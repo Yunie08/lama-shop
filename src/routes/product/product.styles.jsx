@@ -97,6 +97,10 @@ export const AmountContainer = styled.div`
   align-items: center;
   column-gap: 5px;
   font-weight: 700;
+
+  svg:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Amount = styled.span`

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import {
   FavoriteBorder,
   Search,
@@ -14,6 +16,12 @@ import {
 } from "./product-item.styles";
 
 const ProductItem = ({ product }) => {
+  const navigate = useNavigate();
+
+  const onSearchHandler = () => {
+    navigate(`/product/${product._id}`);
+  };
+
   return (
     <ProductContainer>
       <Circle />
@@ -22,7 +30,7 @@ const ProductItem = ({ product }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-        <Icon>
+        <Icon onClick={onSearchHandler}>
           <Search />
         </Icon>
         <Icon>

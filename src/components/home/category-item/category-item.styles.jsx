@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { device } from "../../../utils/responsive";
 
@@ -9,6 +10,11 @@ export const Container = styled.div`
   @media ${device.mobile} {
     height: 30vh;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const Image = styled.img`
@@ -25,16 +31,18 @@ export const Info = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 50%;
-  padding: 30px 40px;
+  /* min-width: 50%;*/
+  width: 100%;
+  padding: 30px 0px;
   opacity: 0.9;
-  border: 2px solid white;
+  //border: 2px solid white;
 `;
 export const Title = styled.h2`
   color: white;
   text-transform: uppercase;
   font-size: 35px;
   margin-bottom: 20px;
+  text-align: center;
 `;
 export const Button = styled.button`
   text-transform: uppercase;
