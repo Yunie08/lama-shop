@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { addProduct } from "../../store/cartRedux";
 
 import productService from "../../services/products.services";
 
@@ -37,10 +40,15 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
 
+  const dispatch = useDispatch();
+
   const incrementQuantity = () => setQuantity(quantity + 1);
   const decrementQuantity = () => quantity > 1 && setQuantity(quantity - 1);
 
   //TODO: implement redux to handle cart
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
 
   useEffect(() => {
     const getOneProduct = async () => {

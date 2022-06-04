@@ -68,6 +68,7 @@ export const Info = styled.div``;
 export const Product = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  row-gap: 15px;
 
   @media ${device.mobile} {
     grid-template-columns: 1fr;
@@ -106,6 +107,12 @@ export const ProductColor = styled.div`
   height: 20px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
+  border-style: solid;
+  border-width: 1px;
+  border-color: ${(props) =>
+    props.color === "white" || props.color === "beige"
+      ? "lightgray"
+      : "transparent"};
 `;
 
 export const ProductSize = styled.span``;
@@ -119,9 +126,7 @@ export const PriceDetail = styled.div`
 
   @media ${device.mobile} {
     flex-direction: row;
-
     justify-content: space-around;
-
     column-gap: 15px;
   }
 `;
@@ -157,7 +162,7 @@ export const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  max-height: 70vh;
+  max-height: 40vh;
 `;
 export const SummaryTitle = styled.h2`
   font-weight: 200;
