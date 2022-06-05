@@ -1,7 +1,7 @@
 import axios from "../utils/axiosConfig";
 import setHeader from "../utils/headerConfig";
 
-const PRODUCT_URL = "products/";
+const PRODUCT_URL = "/products/";
 
 class ProductService {
   getAllProducts() {

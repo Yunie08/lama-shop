@@ -12,6 +12,7 @@ import Product from "./routes/product/product.component";
 import Register from "./routes/register/register.component";
 import Login from "./routes/login/login.component";
 import Cart from "./routes/cart/cart.components";
+import Success from "./routes/success/success.component";
 
 const App = () => {
   const user = true;
@@ -30,6 +31,7 @@ const App = () => {
           element={user ? <Navigate to="/" replace /> : <Login />}
         />
         <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/success" element={<Success />} /> */}
       </Routes>
     </Router>
   );

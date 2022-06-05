@@ -163,6 +163,9 @@ export const Summary = styled.div`
   border-radius: 10px;
   padding: 20px;
   max-height: 40vh;
+  @media ${device.mobile} {
+    max-height: 70vh;
+  }
 `;
 export const SummaryTitle = styled.h2`
   font-weight: 200;
