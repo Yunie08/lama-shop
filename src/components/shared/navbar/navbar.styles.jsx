@@ -72,6 +72,11 @@ export const Right = styled.div`
   @media ${device.mobile} {
     justify-content: center;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export const MenuItem = styled.div`

@@ -65,6 +65,16 @@ export const Button = styled.button`
   background-color: teal;
   cursor: pointer;
   text-transform: uppercase;
+
+  &:disabled {
+    background-color: #549797;
+  }
+`;
+
+export const Error = styled.span`
+  color: red;
+  margin-top: -10px;
+  font-size: 13px;
 `;
 
 export const Link = styled.a`

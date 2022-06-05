@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,7 +17,7 @@ import Cart from "./routes/cart/cart.components";
 import Success from "./routes/success/success.component";
 
 const App = () => {
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <Router>
       <Routes>
